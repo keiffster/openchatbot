@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <category>
+        <pattern>*</pattern>
+        <template>Hello</template>
+    </category>
+
+    <category>
+        <pattern>ASK CHATBOT1 *</pattern>
+        <template>
+            <srai>OPENCHATBOT @CHATBOT1 <star /></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ASK CHATBOT2 *</pattern>
+        <template>
+            <srai>OPENCHATBOT @CHATBOT2 <star /></srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>OPENCHATBOT AT CHATBOT1 *</pattern>
+        <template>
+            <sraix service="OPENCHAT">CHATBOT1 <star /></sraix>
+        </template>
+    </category>
+
+    <category>
+        <pattern>OPENCHATBOT AT CHATBOT2 *</pattern>
+        <template>
+            <sraix service="OPENCHAT">CHATBOT2 <star /></sraix>
+        </template>
+    </category>
+
+ </aiml>

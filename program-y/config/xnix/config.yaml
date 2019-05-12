@@ -197,6 +197,12 @@ brain:
     services:
         OPENCHAT:
             classname: programy.services.openchat.OpenChatRESTService
+        PROGRAMY:
+            classname: programy.services.programy.ProgramyRESTService
+            method: GET
+            url: /api/rest/v1.0/ask
+            host: 127.0.0.1
+            port: 8989
 
     openchatbots:
       chatbot1:

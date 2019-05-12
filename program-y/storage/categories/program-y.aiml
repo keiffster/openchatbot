@@ -47,5 +47,13 @@
         </template>
     </category>
 
+    <!-- Old Skool Generic Rest request ( for testing )-->
+
+    <category>
+        <pattern>REST QUERY *</pattern>
+        <template>
+            <sraix service="PROGRAMY"><star index="1" /></sraix>
+        </template>
+    </category>
 
  </aiml>

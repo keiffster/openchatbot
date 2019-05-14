@@ -1,7 +1,9 @@
-console:
-  description: Program-Y Template Console Client
-  bot:  bot
-  prompt: ">>>"
+flask:
+  description: Program-Y Flask Rest Client
+  host: 0.0.0.0
+  port: 9999
+  debug: false
+  authorization: Basic
 
   scheduler:
     name: Scheduler1
@@ -129,7 +131,6 @@ console:
               config:
                   conversation_logger: conversation
 
-
 #####################################################################################################
 #
 
@@ -195,29 +196,57 @@ brain:
       create: False
 
     services:
-        OPENCHAT:
-            classname: programy.services.openchat.OpenChatRESTService
-        PROGRAMY:
-            classname: programy.services.programy.ProgramyRESTService
+        REST:
+            classname: programy.services.rest.GenericRESTService
             method: GET
-            url: /api/rest/v1.0/ask
-            host: 127.0.0.1
-            port: 8989
+            host: 0.0.0.0
+        Pannous:
+            classname: programy.services.pannous.PannousService
+            url: http://weannie.pannous.com/api
+        Pandora:
+            classname: programy.services.pandora.PandoraService
+            url: http://www.pandorabots.com/pandora/talk-xml
+        Wikipedia:
+            classname: programy.services.wikipediaservice.WikipediaService
+        DuckDuckGo:
+            classname: programy.services.duckduckgo.DuckDuckGoService
+            url: http://api.duckduckgo.com
 
-    openchatbots:
-      chatbot1:
-        url: http://localhost:8989/api/rest/v2.0/ask
-        method: GET
-      chatbot2:
-        url: http://localhost:9898/api/rest/v2.0/ask
-        method: GET
-      chatbot3:
-        url: http://localhost:9999/api/rest/v2.0/ask
-        method: GET
-        authorization: Basic
-      chatbot4:
-        url: http://localhost:9999/api/rest/v2.0/ask
-        method: GET
+    security:
+        authentication:
+            classname: programy.security.authenticate.passthrough.BasicPassThroughAuthenticationService
+            denied_srai: AUTHENTICATION_FAILED
+        authorisation:
+            classname: programy.security.authorise.usergroupsauthorisor.BasicUserGroupAuthorisationService
+            denied_srai: AUTHORISATION_FAILED
+
+    oob:
+      default:
+        classname: programy.oob.defaults.default.DefaultOutOfBandProcessor
+      alarm:
+        classname: programy.oob.defaults.alarm.AlarmOutOfBandProcessor
+      camera:
+        classname: programy.oob.defaults.camera.CameraOutOfBandProcessor
+      clear:
+        classname: programy.oob.defaults.clear.ClearOutOfBandProcessor
+      dial:
+        classname: programy.oob.defaults.dial.DialOutOfBandProcessor
+      dialog:
+        classname: programy.oob.defaults.dialog.DialogOutOfBandProcessor
+      email:
+        classname: programy.oob.defaults.email.EmailOutOfBandProcessor
+      geomap:
+        classname: programy.oob.defaults.map.MapOutOfBandProcessor
+      schedule:
+        classname: programy.oob.defaults.schedule.ScheduleOutOfBandProcessor
+      search:
+        classname: programy.oob.defaults.search.SearchOutOfBandProcessor
+      sms:
+        classname: programy.oob.defaults.sms.SMSOutOfBandProcessor
+      url:
+        classname: programy.oob.defaults.url.URLOutOfBandProcessor
+      wifi:
+        classname: programy.oob.defaults.wifi.WifiOutOfBandProcessor
 
     dynamic:
         variables:

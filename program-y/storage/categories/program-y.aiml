@@ -47,6 +47,15 @@
         </template>
     </category>
 
+    <!-- Use MetaBot to query all openchat services -->
+
+    <category>
+        <pattern>METABOT AT * *</pattern>
+        <template>
+            <sraix service="OPENCHAT">QUERY @METABOT <star index="1" /> <star index="2" /></sraix>
+        </template>
+    </category>
+
     <!-- Old Skool Generic Rest request ( for testing )-->
 
     <category>

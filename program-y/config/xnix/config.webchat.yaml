@@ -197,21 +197,33 @@ brain:
       create: False
 
     services:
-        REST:
-            classname: programy.services.rest.GenericRESTService
+        OPENCHAT:
+            classname: programy.services.openchat.OpenChatRESTService
+        PROGRAMY:
+            classname: programy.services.programy.ProgramyRESTService
             method: GET
-            host: 0.0.0.0
-        Pannous:
-            classname: programy.services.pannous.PannousService
-            url: http://weannie.pannous.com/api
-        Pandora:
-            classname: programy.services.pandora.PandoraService
-            url: http://www.pandorabots.com/pandora/talk-xml
-        Wikipedia:
-            classname: programy.services.wikipediaservice.WikipediaService
-        DuckDuckGo:
-            classname: programy.services.duckduckgo.DuckDuckGoService
-            url: http://api.duckduckgo.com
+            url: /api/rest/v1.0/ask
+            host: 127.0.0.1
+            port: 8989
+
+    openchatbots:
+      chatbot1:
+        url: http://localhost:8989/api/rest/v2.0/ask
+        method: GET
+      chatbot2:
+        url: http://localhost:9898/api/rest/v2.0/ask
+        method: GET
+      chatbot3:
+        url: http://localhost:9999/api/rest/v2.0/ask
+        method: GET
+        authorization: Basic
+      chatbot4:
+        url: http://localhost:7777/api/rest/v2.0/ask
+        method: GET
+        api_key: '11111111111111'
+      metabot:
+        url: http://localhost:8888/api/rest/v2.0/ask
+        method: GET
 
     security:
         authentication:

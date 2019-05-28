@@ -196,7 +196,7 @@ brain:
 
     services:
         OPENCHAT:
-            classname: programy.services.openchat.OpenChatRESTService
+            classname: programy.services.openchatbot.service.OpenChatRESTService
         PROGRAMY:
             classname: programy.services.programy.ProgramyRESTService
             method: GET

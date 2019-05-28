@@ -207,6 +207,8 @@ brain:
             port: 8989
 
     openchatbots:
+      protocols: http, https
+      domains: org, co.uk
       chatbot1:
         url: http://localhost:8989/api/rest/v2.0/ask
         method: GET

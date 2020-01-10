@@ -52,7 +52,7 @@
     <category>
         <pattern>METABOT AT * *</pattern>
         <template>
-            <sraix service="OPENCHAT">QUERY @METABOT <star index="1" /> <star index="2" /></sraix>
+            <sraix service="OPENCHAT"><star index="1" /> <star index="2" /></sraix>
         </template>
     </category>
 

@@ -1,0 +1,8 @@
+{
+   "openchatbot": {
+       "endpoint": "/api/rest/v2.0/ask",
+       "host": "http://127.0.0.1",
+       "port": 7777,
+       "methods": ["GET", "POST"]
+   }
+}
